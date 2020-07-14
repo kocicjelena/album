@@ -1,0 +1,55 @@
+
+
+
+
+<div class="container">
+	
+
+  
+   <button  class="float-right" (click)="showVertical()"><i class="fa fa-bars"></i></button>
+    <button  class="float-right" (click)="showTab()"><i class="fa fa-folder"></i></button>
+    <br>
+    
+    
+    
+    <div *ngIf="tabFlag">
+  
+<div class="table-responsive">
+
+    <table class="table">
+        <h1>Foto albumi familije Marković</h1>
+        <tbody>
+            <tr *ngFor="let e of ialbums" class="d-inline">
+		 <td>		
+			<a class="d-inline" [routerLink]="['/photos', e.id]">
+				<img src="{{e.url}}"><br />{{e.title}} <br />kreirao: {{e.kreirao}} 
+				</a>
+		</td>
+            
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+    <div *ngIf="vertFlag">
+  <div class="table-responsive">
+
+    <table class="table">
+   
+            <h1>Foto albumi familije Marković</h1>
+            
+        <tbody>
+            <tr *ngFor="let e of ialbums">
+		 <td>		
+			<a [routerLink]="['/photos', e.id]"><img src="{{e.url}}"><h2>{{e.title}}</h2> kreirao: {{e.kreirao}} 
+			</a>
+		</td>
+           
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+
+  </div>
+

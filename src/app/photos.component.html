@@ -1,0 +1,134 @@
+
+    <button [routerLink] = "['/albums']"><i class="fa fa-arrow-left"></i> povratak</button>
+    <button  class="float-right" (click)="showVertical()"><i class="fa fa-bars"></i></button>
+    <button  class="float-right" (click)="showTab()"><i class="fa fa-folder"></i></button>
+    <div *ngIf="tabFlag">   
+<div class="table-responsive">
+  <br />
+    <h1>Aranđelovac, 1990.god.</h1>
+    <br />  
+			<div class="float-left">
+				<!-- Search form -->
+				
+			<form class="form-inline waves-light" mdbWavesEffect>
+				
+				
+				<div class="md-form mt-2">
+					<mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
+			    <input class="form-control mr-sm-2" type="text" [(ngModel)]="searchText" placeholder=" Pretraži" (click)="Find($event)">
+			  </div>
+			</form>
+			</div>
+      <table class="table">
+        <tbody *ngFor="let p of photos" class="d-inline">
+            <tr>
+		 <td *ngIf="p.postId==id">
+
+		
+			<!-- <br />Post id: {{p.postId}}, from Albums id: {{id}}:<br />-->
+		  
+       <img src="{{p.url[0]}}" alt="0"> <br />{{p.url[1]}}
+       <button class="btn" (click)="basicModal.show()"><i class="fa fa-trash"></i> </button>
+       <br /> <br />
+       <img src="{{p.url2[0]}}" alt="1"> <br />{{p.url2[1]}}
+       <button class="btn" (click)="basicModal.show()"><i class="fa fa-trash"></i> </button>
+       <br /><br />
+       <img src="{{p.url3[0]}}" alt="2"><br /> {{p.url3[1]}}
+       <button class="btn" (click)="basicModal.show()"><i class="fa fa-trash"></i> </button>
+       <br /><br />
+        <img src="{{p.url4[0]}}" alt="3"> <br />{{p.url4[1]}}
+        <button class="btn" (click)="basicModal.show()"><i class="fa fa-trash"></i> </button>
+        <br />
+    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title w-100" id="myModalLabel">Da li si siguran da želiš da obrišeš  {{p.url[1]}}?</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Ne</button>
+            <button type="button" class="relative waves-light" mdbWavesEffect (click)="DeleteUser(1)">Da</button>
+          </div>
+        </div>
+      </div>
+    </div>
+		</td>
+              
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<div *ngIf="vertFlag">
+
+<div class="table-responsive">
+  <br />
+    <h1>Aranđelovac, 1990.god.</h1>
+    <br />  
+			<div class="float-left">
+				<!-- Search form -->
+				
+			<form class="form-inline waves-light" mdbWavesEffect>
+				
+				
+				<div class="md-form mt-2">
+					<mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
+			    <input class="form-control mr-sm-2" type="text" [(ngModel)]="searchText" placeholder=" Pretraži" (click)="Find($event)">
+			  </div>
+			</form>
+			</div>
+      <table class="table">
+        <tbody *ngFor="let p of photos" class="d-inline">
+            <tr>
+		 <td *ngIf="p.postId==id">
+
+		
+			<!-- <br />Post id: {{p.postId}}, from Albums id: {{id}}:<br />-->
+		  
+       <img src="{{p.url[0]}}" alt="0"> {{p.url[1]}}
+       <button class="btn" (click)="basicModal.show()"><i class="fa fa-trash"></i> </button>
+       <br /> <br />
+       <img src="{{p.url2[0]}}" alt="1"> {{p.url2[1]}}
+       <button class="btn" (click)="basicModal.show()"><i class="fa fa-trash"></i> </button>
+       <br /><br />
+       <img src="{{p.url3[0]}}" alt="2"> {{p.url3[1]}}
+       <button class="btn" (click)="basicModal.show()"><i class="fa fa-trash"></i> </button>
+       <br /><br />
+        <img src="{{p.url4[0]}}" alt="3"> {{p.url4[1]}}
+        <button class="btn" (click)="basicModal.show()"><i class="fa fa-trash"></i> </button>
+        <br />
+	  <!--<br />{{employee.url}} -->
+    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title w-100" id="myModalLabel">Da li si siguran da želiš da obrišeš  {{p.url[1]}}?</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Ne</button>
+            <button type="button" class="relative waves-light" mdbWavesEffect (click)="DeleteUser(1)">Da</button>
+          </div>
+        </div>
+      </div>
+    </div>
+		</td>
+           <!--     <td><a href="" (click)="Find($event)"><img src="{{employee.url}}"><br />{{employee.title}} <br />kreirao: {{employee.kreirao}}</a></td>
+           -->   
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
