@@ -22,10 +22,7 @@ export class AlbumService {
       //.do((data) => {JSON.stringify(data)});
      // .do((data) => {this.displaydata(data);});
    }
-      
-  DeletePhoto(id){
- return this._http.delete('this._userurl');
-}
+ 
       //.do((data) => {JSON.stringify(data)});
      // .do((data) => {this.displaydata(data);});
    
